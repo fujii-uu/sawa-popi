@@ -1,0 +1,304 @@
+body {
+  background: #008080;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-box {
+  width: 800px;      /* 一番大きい画像に合わせる */
+  height: 636px;     /* 一番大きい画像に合わせる */
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-image {
+  width: 800px;
+  height: 636px;
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  position: absolute;
+  left: 50%;
+  bottom: 0; /* 追加！ */
+  transform: translateX(-50%);
+}
+
+.welcome-text {
+  position: absolute;
+  top: 7;        /* 上からの距離 */
+  left: 7px;       /* 左からの距離 */
+  z-index: 50;      /* 背景より前に出す */
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;  /* 好きなサイズに調整 */
+  color: #fff;      /* 白文字 */
+}
+
+
+.second-image {
+  width: 790px;
+  height: 573px;
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+}
+
+/* ...既存のコード... */
+
+.movie-grid {
+  position: absolute;
+  right: 20px;         /* 右端に寄せる */
+  bottom: 20px;        /* 下端に寄せる */
+  width: 580px;     /* グリッド全体の幅 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3列2行 */
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+
+.movie-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.movie-cell, .movie-img {
+  pointer-events: auto;
+}
+
+.movie-overlay {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 95%;
+  height: 85%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 40;
+  pointer-events: auto;
+  pointer-events: auto;       /* これ必須 */
+  cursor: pointer;            /* クリックできそう感 */
+  transition: transform 0.1s ease; /* スムーズに縮む */
+}
+
+.movie-overlay:hover {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* クリック押し込み感 */
+.movie-overlay:active {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+
+.movie-text {
+  position: absolute;
+  inset: 0;                 /* movie-img と完全一致 */
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 6px;             /* 端にくっつきすぎないように */
+  z-index: 60;              /* overlay より上 */
+  color: black;             /* 黒文字 */
+  font-size: 14px;
+  font-family: 'DotGothic16', monospace;
+  font-size: 14px;
+  pointer-events: none;
+  text-shadow: none;        /* 黒なので影なし（必要なら戻せる） */
+}
+
+.sns-buttons {
+  position: absolute;
+  top: 65px;
+  right: 20px;
+  display: flex;
+  gap: 5px;
+  transform: scale(1.28);      /* ← 1.1 → 1.05 */
+  transform-origin: top right;
+    grid-auto-flow: column;  /* ← 横並び */
+}
+
+.sns-buttons a {
+  position: relative;   /* 重ねる基準 */
+  display: inline-block;
+  transition: transform 0.1s ease; /* スムーズに縮む */
+}
+
+/* マウスオーバー時にちょっと縮む */
+.sns-buttons a:hover {
+  transform: scale(0.95); /* 90%に縮む → 押し込み感 */
+}
+
+.sns-item {
+  position: relative;
+}
+
+.sns-icon {
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%);
+  width: 25%;
+  pointer-events: none;
+}
+
+
+
+.sns-text-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  pointer-events: none;
+  z-index: 20;
+}
+
+.sns-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 45px;   /* ← アイコンの右横に来る */
+  font-family: 'DotGothic16', monospace;
+  color: #000;
+  line-height: 1.1;
+}
+
+.sns-main {
+  font-size: 13px;   /* ← 1段目（X / Instagram / Shop） */
+  letter-spacing: 0.1em;
+}
+
+
+.sns-sub {
+  font-size: 9px;   /* ← 2段目（ID） */
+  margin-top: 2px;
+  letter-spacing: 0.08em;
+}
+
+
+
+
+
+.white-image {
+  position: absolute;
+  left: 25px;         /* 左端に寄せる */
+  bottom: 20px;        /* 下端に寄せる */
+  width: 20%;     /* グリッド全体の幅 */
+  height: 76.5%;
+  display: grid;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.name-image {
+  position: absolute;
+  top: 70px;       /* 第二背景と上揃え */
+  left: 25px;      /* 左揃え（white と同じ列） */
+  z-index: 10;     /* white より上に表示 */
+  width: 20%;
+}
+
+.name-text {
+  position: absolute;
+  top: 90px;                  /* name-image と同じ上位置 */
+  left: 68px;                 /* 左揃え */
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  color: #000;
+  z-index: 30;             /* name-imageより上に表示 */
+  pointer-events: none;
+}
+
+.name-icon {
+  width: 20px;     /* 好きなサイズに調整 */
+  height: 20px;
+  position: absolute;
+  top: 85px;                  /* name-image と同じ上位置 */
+  left: 40px;                 /* 左揃え */
+  z-index: 30;             /* name-imageより上に表示 */
+  pointer-events: none;
+}
+
+
+
+.close-image {
+  position: absolute;
+  top: 5px;        /* ウェルカムと同じ高さ */
+  right: 5px;      /* 右端から少し余白を開ける */
+  z-index: 50;      /* ウェルカムより上に重ねる */
+  width: 16px;      /* サイズ調整 */
+  height: auto;     /* アスペクト比を維持 */
+}
+
+
+
+
+.removable {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: top right; /* 右上から縮めたい場合 */
+}
+
+.removable.closed {
+  transform: scale(0);
+  opacity: 0;
+}
+
+
+.white-overlay {
+  position: absolute;
+  top: 150px;           /* white画像の上部に合わせる */
+  left: 37px;          /* 左揃え */
+  display: flex;
+  flex-direction: column; /* 縦並び */
+  gap: 10px;           /* 行間 */
+  z-index: 20;         /* whiteの上 */
+}
+
+.white-item {
+  display: flex;
+  align-items: center; /* アイコンとテキストを横並び中央揃え */
+  gap: 8px;            /* アイコンとテキストの間 */
+}
+
+.collection-icon {
+  width: 15px;         /* アイコンのサイズ */
+}
+
+.white-text {
+  color: black;        /* 必要に応じて変更 */
+  line-height: 1.4;
+  text-decoration: none;   /* アンダーラインを消す */
+}
+
+.white-text:hover,
+.dot-gothic:hover {
+  color: #7c7c7c; /* 好きな色に変えてね、例は赤 */
+  transition: color 0.2s ease; /* 変化をスムーズに */
+  cursor: pointer;             /* クリックできそう感 */
+}
+
+
+.press-start {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+}
+
+.dot-gothic {
+  font-family: 'DotGothic16', monospace;
+  font-size: 11px;
+}
