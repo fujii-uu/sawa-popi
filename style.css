@@ -5,6 +5,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  inset: 0;
+}
+
+html, body {
+  overflow: hidden; /* ← これだけでOK */
 }
 
 .center-box {
@@ -79,6 +84,7 @@ body {
   gap: 10px;
   z-index: 10;
   pointer-events: none;
+
 }
 
 
@@ -352,8 +358,7 @@ scroll-hint{
     display: block;
   }
   html, body {
-  overflow-x: hidden;  /* 横スクロールさせない */
-  overflow-y: hidden;  /* 横スクロールさせない */
+  overflow: hidden; /* ← これだけでOK */
   width: 100%;
 }
 
@@ -382,7 +387,7 @@ scroll-hint{
   .movie-grid {
     position: fixed;
 
-    top: 30vh;          /* 上の余白（SNSやヘッダー分） */
+    top: 27vh;          /* 上の余白（SNSやヘッダー分） */
     bottom: 20px;      /* 下をちゃんと空ける ←重要 */
 
     left: 50%;
@@ -392,11 +397,10 @@ scroll-hint{
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
-
     overflow-y: auto;
     overflow-x: hidden;
-
-    z-index: 50;
+    -webkit-overflow-scrolling: touch;
+    pointer-events: auto; /* ← これを足すだけ */
   }
     .movie-cell {
     width: 100%;
@@ -476,6 +480,7 @@ scroll-hint{
     right: auto;
     margin: 0;
     gap: 24px;  
+    
   }
 
     .sns-icon {
@@ -515,8 +520,9 @@ scroll-hint{
     position: fixed;
     top: 20px;
     right: 20px;
-     z-index: 500 !important; /* これでネームイメージより前面 */
+    z-index: 500 !important; /* これでネームイメージより前面 */
     cursor: pointer;
+    border: none;       /* 万一枠線が付いてた場合に消す */
   }
   .hamburger.touch-active {
     color: #ff0;
@@ -593,7 +599,7 @@ scroll-hint{
     top: 20px;
     left: 20px;
     z-index: 100;
-        white-space: normal;      /* ← 切れ防止 */
-            border-right: none;       /* ← カーソルも消す */
+    white-space: normal;      /* ← 切れ防止 */
+    border-right: none;       /* ← カーソルも消す */
   }
 }
