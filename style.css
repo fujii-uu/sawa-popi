@@ -582,5 +582,7 @@ scroll-hint{
     top: 20px;
     left: 20px;
     z-index: 100;
+        white-space: normal;      /* ← 切れ防止 */
+            border-right: none;       /* ← カーソルも消す */
   }
 }
