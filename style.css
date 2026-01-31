@@ -353,8 +353,7 @@ scroll-hint{
   }
   html, body {
   overflow-x: hidden;  /* 横スクロールさせない */
-  overflow-y: hidden;   /* 縦スクロール禁止 */
-
+  overflow-y: hidden;  /* 横スクロールさせない */
   width: 100%;
 }
 
@@ -383,7 +382,7 @@ scroll-hint{
   .movie-grid {
     position: fixed;
 
-    top: 30%;          /* 上の余白（SNSやヘッダー分） */
+    top: 30vh;          /* 上の余白（SNSやヘッダー分） */
     bottom: 20px;      /* 下をちゃんと空ける ←重要 */
 
     left: 50%;
