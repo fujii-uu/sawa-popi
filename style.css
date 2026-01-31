@@ -170,12 +170,19 @@ body {
 .sns-icon {
   position: absolute;
   top: 50%;
-  left: 6px;
+  left: 12px;
   transform: translateY(-50%);
   width: 20%;
   pointer-events: none;
 }
 
+.sns-icon-x {
+  width: 23px;
+}
+
+.sns-note-text {
+  padding-left: 5px;   /* ← アイコンの右横に来る */
+}
 
 
 .sns-text-overlay {
@@ -191,7 +198,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 45px;   /* ← アイコンの右横に来る */
+  padding-left: 50px;   /* ← アイコンの右横に来る */
   font-family: 'DotGothic16', monospace;
   color: #000;
   line-height: 1.1;
@@ -479,6 +486,11 @@ scroll-hint{
     transform: none;
     display: block;
   }
+
+  .sns-icon-x {
+  width: 35px;   /* Xだけ小さく */
+    transform: translateY(2px);
+}
   .sns-btn {
     display: none;
   }
