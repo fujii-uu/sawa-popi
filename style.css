@@ -172,7 +172,7 @@ body {
   top: 50%;
   left: 6px;
   transform: translateY(-50%);
-  width: 25%;
+  width: 20%;
   pointer-events: none;
 }
 
@@ -336,6 +336,9 @@ body {
 .hamburger {
   display: none;
 }
+scroll-hint{
+  display: none;
+}
 
 @media screen and (max-width: 430px) {
   body {
@@ -370,19 +373,23 @@ body {
 }
 
 @media screen and (max-width: 430px) {
- .movie-grid {
-    position: fixed;      /* 左右中央に固定 */
-    top: 80%;
+  .movie-grid {
+    position: fixed;
+
+    top: 30%;          /* 上の余白（SNSやヘッダー分） */
+    bottom: 20px;      /* 下をちゃんと空ける ←重要 */
+
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+
     width: 90%;
-    height: 100%;
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
-    overflow-y: auto;     /* ← 縦スクロールOK */
+
+    overflow-y: auto;
     overflow-x: hidden;
-    pointer-events: auto;
+
     z-index: 50;
   }
     .movie-cell {
@@ -413,11 +420,38 @@ body {
     height: auto;
     top: 50%;
   }
+
+  .movie-grid::-webkit-scrollbar {
+  width: 6px;
 }
- 
-  
+
+.movie-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.movie-grid::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.5);
+  border-radius: 10px;
+}
 
 
+
+
+}
+
+@media screen and (max-width: 430px) {
+
+  /* スクロールバーの太さ */
+  .movie-grid::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* 背景レール */
+  .movie-grid::-webkit-scrollbar-track {
+    background: #002f2f8f;
+  }
+
+}
 
 
 
@@ -427,7 +461,7 @@ body {
 
   .sns-buttons {
     position: fixed;
-    top: 22%;
+    top: 23%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -440,7 +474,7 @@ body {
 
     .sns-icon {
     position: static;          /* ← absolute解除 */
-    width: 50px;               /* 好きなサイズ */
+    width: 40px;               /* 好きなサイズ */
     height: auto;
     transform: none;
     display: block;
