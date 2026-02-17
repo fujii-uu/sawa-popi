@@ -13,7 +13,7 @@ html, body {
 }
 
 .center-box {
-  width: 800px;      /* 一番大きい画像に合わせる */
+  width: 200%;      /* 一番大きい画像に合わせる */
   height: 636px;     /* 一番大きい画像に合わせる */
   display: flex;
   position: relative;
@@ -34,8 +34,8 @@ html, body {
 
 .welcome-text {
   position: absolute;
-  top: 7px;        
-  left: 7px;       
+  top: 1%;        
+  left: 20%;       
   z-index: 50;      
   font-family: 'Press Start 2P', monospace;
   font-size: 11px;  
@@ -63,8 +63,8 @@ html, body {
 
 
 .second-image {
-  width: 790px;
-  height: 573px;
+  width: 62%;
+  height: 83%;
   position: absolute;
   left: 50%;
   bottom: 5px;
@@ -75,9 +75,9 @@ html, body {
 
 .movie-grid {
   position: absolute;
-  right: 20px;         /* 右端に寄せる */
-  bottom: 20px;        /* 下端に寄せる */
-  width: 580px;     /* グリッド全体の幅 */
+  right: 20%;         /* 右端に寄せる */
+  bottom: 3%;        /* 下端に寄せる */
+  width: 46%;     /* グリッド全体の幅 */
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3列2行 */
   grid-template-rows: repeat(2, 1fr);
@@ -149,13 +149,14 @@ html, body {
 
 .sns-buttons {
   position: absolute;
-  top: 65px;
-  right: 20px;
+  top: 5.5%;
+  right: 53%;
   display: flex;
-  gap: 5px;
+  gap: 8px;
   transform: scale(1.28);      /* ← 1.1 → 1.05 */
   transform-origin: top right;
     grid-auto-flow: column;  /* ← 横並び */
+    width: 10%;
 }
 
 .sns-buttons a {
@@ -198,16 +199,18 @@ html, body {
   grid-template-columns: repeat(3, 1fr);
   pointer-events: none;
   z-index: 20;
+   gap: 2rem;
 }
 
 .sns-text-col {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 50px;   /* ← アイコンの右横に来る */
+  padding-left: 3rem;   /* ← アイコンの右横に来る */
   font-family: 'DotGothic16', monospace;
   color: #000;
   line-height: 1.1;
+  
 }
 
 .sns-main {
@@ -228,10 +231,10 @@ html, body {
 
 .white-image {
   position: absolute;
-  left: 25px;         /* 左端に寄せる */
+  left: 20%;         /* 左端に寄せる */
   bottom: 20px;        /* 下端に寄せる */
-  width: 20%;     /* グリッド全体の幅 */
-  height: 76.5%;
+  width:13%;     /* グリッド全体の幅 */
+  height: 78%;
   display: grid;
   z-index: 10;
   pointer-events: none;
@@ -241,10 +244,11 @@ html, body {
 
 .name-image {
   position: absolute;
-  top: 70px;       /* 第二背景と上揃え */
-  left: 25px;      /* 左揃え（white と同じ列） */
+  top: 4.5%;       /* 第二背景と上揃え */
+  left: 19.5%;      /* 左揃え（white と同じ列） */
   z-index: 10;     /* white より上に表示 */
-  width: 20%;
+  width: 14%;
+  height: 11%;
     transition: filter 0.2s ease, transform 0.2s ease;
 }
 /* ホバーでレトロ光る */
@@ -256,10 +260,10 @@ html, body {
 
 .name-text {
   position: absolute;
-  top: 90px;                  /* name-image と同じ上位置 */
-  left: 68px;                 /* 左揃え */
+  top: 9%;                  /* name-image と同じ上位置 */
+  left: 22.5%;                 /* 左揃え */
   font-family: 'Press Start 2P', monospace;
-  font-size: 11px;
+  font-size: 0.9rem;
   color: #000;
   z-index: 30;             /* name-imageより上に表示 */
   pointer-events: none;
@@ -269,8 +273,8 @@ html, body {
   width: 20px;     /* 好きなサイズに調整 */
   height: 20px;
   position: absolute;
-  top: 85px;                  /* name-image と同じ上位置 */
-  left: 40px;                 /* 左揃え */
+  top: 8.5%;                  /* name-image と同じ上位置 */
+  left: 20.5%;                 /* 左揃え */
   z-index: 30;             /* name-imageより上に表示 */
   pointer-events: none;
 }
@@ -280,7 +284,7 @@ html, body {
 .close-image {
   position: absolute;
   top: 5px;        /* ウェルカムと同じ高さ */
-  right: 5px;      /* 右端から少し余白を開ける */
+  right: 19.1%;      /* 右端から少し余白を開ける */
   z-index: 50;      /* ウェルカムより上に重ねる */
   width: 16px;      /* サイズ調整 */
   height: auto;     /* アスペクト比を維持 */
@@ -302,8 +306,8 @@ html, body {
 
 .white-overlay {
   position: absolute;
-  top: 150px;           /* white画像の上部に合わせる */
-  left: 37px;          /* 左揃え */
+  top: 22%;           /* white画像の上部に合わせる */
+  left: 21%;          /* 左揃え */
   display: flex;
   flex-direction: column; /* 縦並び */
   gap: 20px;           /* 行間 */
@@ -471,12 +475,11 @@ scroll-hint{
 
   .sns-buttons {
     position: fixed;
-    top: 23%;
-    left: 50%;
+    top: 20%;
+    left: 35%;
     transform: translate(-50%, -50%);
     display: flex;
     z-index: 100;
-    left: 50%;
     right: auto;
     margin: 0;
     gap: 24px;  
