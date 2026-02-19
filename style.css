@@ -228,3 +228,33 @@ html, body {
   letter-spacing: 0.08em;
 }
 
+/* =========================
+   スマホ用（どの機種でも対応）
+========================= */
+@media screen and (max-width: 768px) {
+
+  /* ① XなどSNSアイコンを小さく */
+  .sns-icon {
+    width: 12px;
+    height: auto;
+        transform: translateX(2px);
+  }
+
+
+
+   .sns-line1 {
+    display: inline-block;      /* これ重要 */
+    font-size: 6px;             /* 好きなサイズに */
+    position: relative;         /* 上下にずらすため */
+    top: -4px;                  /* 上に移動 */
+        left: -3px;              /* 左に移動（マイナスで左、プラスで右） */
+  }
+
+
+  /* ③ ムービータイトルを上に */
+  .movie-text {
+    font-size: 6px;
+    transform: translateY(-1px);
+  }
+
+}
